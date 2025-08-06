@@ -110,11 +110,11 @@ So to get the flag, we have to meet two conditions :
 Obviously, this is not possible, we need to get a way around this.
 
 The key is that the checks are not in the same language : the first is made by python while the second is by go.
-We need to find an inconstency between python and go parsers.
+We need to find an inconsistency between python and go parsers.
 
-At first I tried to send two ```supply_type``` like this : ```{'supply_type': 'a', 'supply_type': 'b'}``` but when encontering 2 indentical keys, both python and go parsers take the last one, so no inconstency.
+At first I tried to send two ```supply_type``` like this : ```{'supply_type': 'a', 'supply_type': 'b'}``` but when encontering 2 indentical keys, both python and go parsers take the last one, so no inconsistency.
 
-Then I remembered of unicode normalization. You have maybe seen some weird letter like ```ſ```, this is a unicode character but when you do some manipulation with it, you get some strange things to happen like this : 
+Then I remembered of unicode normalization. In Unicode, some characters are visually similar but have different codepoints. Some languages normalize these before processing, which can cause inconsistencies. You have maybe seen some weird letter like ```ſ```, this is a unicode character but when you do some manipulation with it, you get some strange things to happen like this : 
 
 ``` python
 >>> 'ſ'.upper()
@@ -123,7 +123,7 @@ Then I remembered of unicode normalization. You have maybe seen some weird lette
 
 The 'strange' `s` becomes a 'normal' `s` !
 
-Maybe we can have some inconstency with that.
+Maybe we can have some inconsistency with that.
 
 Note that ```'ſ'.lower()``` produce ```'ſ'```, so no normalization in the web application python's code.
 
