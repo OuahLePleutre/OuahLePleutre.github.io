@@ -1,0 +1,313 @@
+<link rel="stylesheet" href="{{ '/assets/css/transaction.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
+
+
+
+<div class="btc-opreturn-demo custom-card">
+
+  <div class="btc-demo-intro">
+    <strong>Interactive example</strong>
+    <span>
+      See how data is placed in a Bitcoin transaction using
+      <code>OP_RETURN</code> and then included in a block.
+    </span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="btc-demo-step">
+
+    <div class="btc-demo-step-number">1</div>
+
+    <div class="btc-demo-step-content">
+
+      <div class="btc-demo-step-title">
+        Choose the OP_RETURN data
+      </div>
+
+      <div class="btc-demo-step-description">
+        Enter the data you want to record (raw hex).
+      </div>
+
+      <div class="btc-demo-input-wrapper">
+
+        <input
+          class="btc-demo-input"
+          type="text"
+          value="d3adb33f"
+          maxlength="160"
+          placeholder="Enter OP_RETURN data..."
+        >
+
+        <button class="btc-demo-create">
+          Create transaction
+        </button>
+
+      </div>
+
+      <div class="btc-demo-counter">
+        <span class="btc-demo-char-count">4</span>/80 bytes
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ARROW -->
+  <div class="btc-demo-arrow">
+    <span>becomes part of</span>
+  </div>
+
+
+  <!-- STEP 2 -->
+  <div class="btc-demo-step">
+
+    <div class="btc-demo-step-number">2</div>
+
+    <div class="btc-demo-step-content">
+
+      <div class="btc-demo-step-title">
+        Bitcoin transaction
+      </div>
+
+      <div class="btc-demo-step-description">
+        The data is placed in an <code>OP_RETURN</code> output.
+      </div>
+
+
+      <div class="btc-demo-transaction">
+
+        <div class="btc-demo-tx-header">
+
+          <span>TRANSACTION</span>
+
+          <span class="btc-demo-status btc-demo-status-pending">
+            Unconfirmed
+          </span>
+
+        </div>
+
+
+        <div class="btc-demo-tx-body">
+
+          <div class="btc-demo-tx-row">
+
+            <span class="btc-demo-key">
+              TXID
+            </span>
+
+            <code class="btc-demo-txid">
+              —
+            </code>
+
+          </div>
+
+
+          <div class="btc-demo-tx-row">
+
+            <span class="btc-demo-key">
+              OUTPUT
+            </span>
+
+            <div class="btc-demo-output">
+
+              <span class="btc-demo-opcode">
+                OP_RETURN
+              </span>
+
+              <code class="btc-demo-hex">
+                —
+              </code>
+
+            </div>
+
+          </div>
+
+            <!--
+          <div class="btc-demo-tx-row">
+
+            <span class="btc-demo-key">
+              DATA
+            </span>
+
+            <div class="btc-demo-data">
+              —
+            </div>
+
+          </div> -->
+
+        </div>
+
+      </div>
+
+
+      <div class="btc-demo-action">
+
+        <div class="btc-demo-network">
+
+          <span class="btc-demo-pulse"></span>
+
+          Broadcast to Bitcoin network
+
+        </div>
+
+        <button class="btc-demo-mine" disabled>
+          ⛏ Mine transaction
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ARROW -->
+  <div class="btc-demo-arrow">
+    <span>included in</span>
+  </div>
+
+
+  <!-- STEP 3 -->
+  <div class="btc-demo-step">
+
+    <div class="btc-demo-step-number">3</div>
+
+    <div class="btc-demo-step-content">
+
+      <div class="btc-demo-step-title">
+        Mined Bitcoin block
+      </div>
+
+      <div class="btc-demo-step-description">
+        The transaction is now included in a block with a timestamp.
+      </div>
+
+
+      <div class="btc-demo-block">
+
+        <div class="btc-demo-block-header">
+
+          <div>
+
+            <span class="btc-demo-block-label">
+              BITCOIN BLOCK
+            </span>
+
+            <strong class="btc-demo-block-number">
+              # —
+            </strong>
+
+          </div>
+
+          <span class="btc-demo-mined-badge">
+            NOT MINED
+          </span>
+
+        </div>
+
+
+        <div class="btc-demo-block-details">
+
+          <div class="btc-demo-block-detail">
+
+            <span>BLOCK HASH</span>
+
+            <code class="btc-demo-block-hash">
+              —
+            </code>
+
+          </div>
+
+
+          <div class="btc-demo-block-detail">
+
+            <span>TIMESTAMP</span>
+
+            <strong class="btc-demo-block-time">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="btc-demo-block-transactions">
+
+          <div class="btc-demo-block-tx-label">
+            TRANSACTION INCLUDED IN BLOCK
+          </div>
+
+
+          <div class="btc-demo-mined-tx">
+
+            <div class="btc-demo-mined-icon">
+              ₿
+            </div>
+
+
+            <div class="btc-demo-mined-content">
+
+              <code class="btc-demo-mined-txid">
+                —
+              </code>
+
+
+              <div class="btc-demo-mined-opreturn">
+
+                <span>
+                  OP_RETURN
+                </span>
+
+                <code class="btc-demo-mined-data">
+                  —
+                </code>
+
+              </div>
+
+            </div>
+
+
+            <div class="btc-demo-check">
+              ✓
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULT -->
+  <div class="btc-demo-result">
+
+    <div class="btc-demo-result-icon">
+      ✓
+    </div>
+
+    <div>
+
+      <strong>
+        The data is now referenced by the blockchain.
+      </strong>
+
+      <p>
+        The original document does not need to be stored on-chain.
+        Only its hash is recorded in the transaction.
+        Anyone can later inspect the blockchain and verify that
+        the transaction existed before the block timestamp.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="{{ '/assets/js/transaction.js' | relative_url }}" defer></script>
